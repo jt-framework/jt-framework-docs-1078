@@ -1,0 +1,29 @@
+import{_ as n}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as s,c as a,a as e}from"./app-5LVKShiE.js";const t={},o=e(`<h1 id="session相关" tabindex="-1"><a class="header-anchor" href="#session相关"><span>Session相关</span></a></h1><h2 id="jt1078sessionmanager" tabindex="-1"><a class="header-anchor" href="#jt1078sessionmanager"><span>Jt1078SessionManager</span></a></h2><p>该组件用来管理每个终端的 <code>TCP</code> 连接。</p><p>要定制 <code>Jt1078SessionManager</code> 只需自己声明一个 <code>Jt1078SessionManager</code> 类型的 <code>Bean</code> 即可。</p><h2 id="jt1078sessioneventlistener" tabindex="-1"><a class="header-anchor" href="#jt1078sessioneventlistener"><span>Jt1078SessionEventListener</span></a></h2><p><code>Jt1078SessionEventListener</code> 会在 <code>Jt1078SessionManager</code> 中新增、删除 或 关闭 <code>Jt1078Session</code> 时回调。</p><div class="language-java line-numbers-mode" data-ext="java" data-title="java"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Jt1078SessionEventListener</span> <span class="token keyword">extends</span> <span class="token class-name">OrderedComponent</span> <span class="token punctuation">{</span>
+
+
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onSessionAdd</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Jt1078Session</span> session<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onSessionRemove</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Jt1078Session</span> session<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onSessionClose</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Jt1078Session</span> session<span class="token punctuation">,</span> <span class="token class-name">Jt1078SessionCloseReason</span> closeReason<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>想要监听 <code>Jt1078Session</code> 事件：</p><ul><li>声明若干个 <code>Jt1078SessionEventListener</code> 类型的 <code>Bean</code> 即可</li><li>或者可以直接调用 <code>Jt1078SessionManager.addListener(listener)</code> 方法手动注册监听器</li></ul><div class="language-java line-numbers-mode" data-ext="java" data-title="java"><pre class="language-java"><code><span class="token comment">// Session事件监听器</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyJt1078Config</span> <span class="token punctuation">{</span>
+    <span class="token comment">// [[ 非必须配置 ]] -- Session事件监听器 (可以有多个)</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Jt1078SessionEventListener</span> <span class="token function">listener1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MyJt1078SessionEventListener01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// [[ 非必须配置 ]] -- Session事件监听器 (可以有多个)</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Jt1078SessionEventListener</span> <span class="token function">listener2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MyJt1078SessionEventListener02</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,10),i=[o];function c(p,l){return s(),a("div",null,i)}const r=n(t,[["render",c],["__file","session-config.html.vue"]]);export{r as default};
